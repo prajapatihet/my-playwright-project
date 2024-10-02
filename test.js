@@ -1,4 +1,5 @@
 const { chromium } = require('playwright');
+const { expect } = require('playwright/test');
 
 (async () => {
     const browser = await chromium.launch();
@@ -15,6 +16,17 @@ const { chromium } = require('playwright');
     // await page.type('input[name="username"]', 'myusername'); --- type 'myusername' into the input field having name username
 
     // await page.selectOption('#country-select', 'US') --selects the option with the value US
+
+
+    //Assertions in Playwright
+
+    // await expect(page.locator('button#login')).toBeVisible();  -- check whether button with id login is visible or not
+
+    // await expect(page.locator('#welcome-message')).toHaveText('Welcome back, User!') -- check whether text value match or not
+
+    // await expect(page.locator('.list-item')).toHaveCount(3)  -- check the length of list is 3 or not
+
+    // await expect(page.locator('#submit-button')).toBeEnabled();  -- checks button is Enabled or not
 
     await browser.close();
 })();
